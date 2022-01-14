@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mi_App_Kodemia.iml" filepath="$PROJECT_DIR$/.idea/modules/Mi_App_Kodemia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mi_App_Kodemia.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mi_App_Kodemia.app.iml" />
+    </modules>
+  </component>
+</project>
