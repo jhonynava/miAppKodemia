@@ -3,4 +3,5 @@
     <string name="app_name">Mi App Kodemia</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="onCreate">Metodo onCreate</string>
+    <string name="estado">Tlaxcala</string>
 </resources>

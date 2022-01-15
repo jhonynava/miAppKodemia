@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/materialCardViewElevatedStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="16dp"
+    android:focusable="true"
+    android:clickable="true"
+    app:cardCornerRadius="32dp"
+    app:cardElevation="8dp"
+    android:id="@+id/cardView_item_koder">
+
+    <!--Este es un comentario -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardView_koder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView_koder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textView_name_koder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/red_900"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_koder"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView_estado_koder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/estado"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_koder"
+            app:layout_constraintTop_toBottomOf="@+id/textView_name_koder" />
+
+        <TextView
+            android:id="@+id/textView_edad_koder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_koder"
+            app:layout_constraintTop_toBottomOf="@+id/textView_estado_koder"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="TextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

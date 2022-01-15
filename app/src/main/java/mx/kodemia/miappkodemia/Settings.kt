@@ -1,5 +1,6 @@
 package mx.kodemia.miappkodemia
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,7 +27,7 @@ class Settings : AppCompatActivity() {
         initListView()
 
         fab_extended.setOnClickListener {
-            Snackbar.make(parent_view!!, "Material es cool", Snackbar.LENGTH_SHORT).show()
+            startActivity(Intent(this,MyRecyclerView::class.java))
         }
     }
 
