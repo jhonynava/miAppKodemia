@@ -31,13 +31,62 @@ class MyRecyclerView : AppCompatActivity() {
     }
 
     private fun initRecyclerKoders() {
-        listKoder.add(DatosKoder("Sael Aceves", "Jalisco", 21))
-        listKoder.add(DatosKoder("Alejandra de la Torre", "Nuevo León", 27))
-        listKoder.add(DatosKoder("Sora", "Jalisco", 31))
-        listKoder.add(DatosKoder("Robe Herrera", "Jalisco", 31))
-        listKoder.add(DatosKoder("Fabian", "Jalisco", 22))
-        listKoder.add(DatosKoder("Manu", "Veracruz", 30))
-        listKoder.add(DatosKoder("Diego", "Morelos", 26))
+        listKoder.add(
+            DatosKoder(
+                "https://www.lifeder.com/wp-content/uploads/2017/09/Guadalajara-Jalisco-min-696x464.jpg",
+                "Sael Aceves",
+                "Jalisco",
+                21
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://cdn.forbes.com.mx/2020/07/nuevo-leon-640x360.jpg",
+                "Alejandra de la Torre",
+                "Nuevo León",
+                27
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://www.lifeder.com/wp-content/uploads/2017/09/Guadalajara-Jalisco-min-696x464.jpg",
+                "Sora",
+                "Jalisco",
+                31
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://www.lifeder.com/wp-content/uploads/2017/09/Guadalajara-Jalisco-min-696x464.jpg",
+                "Robe Herrera",
+                "Jalisco",
+                31
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://www.lifeder.com/wp-content/uploads/2017/09/Guadalajara-Jalisco-min-696x464.jpg",
+                "Fabian",
+                "Jalisco",
+                22
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://mandara.mx/wp-content/uploads/2021/05/veracruz_puerto1_2-1024x613.jpg",
+                "Manu",
+                "Veracruz",
+                30
+            )
+        )
+        listKoder.add(
+            DatosKoder(
+                "https://megalopolismx.com/images/noticias/201812/se-declara-listo-morelos-para-recibir-a-turistas-en-vacaciones-de-invierno.jpg",
+                "Diego",
+                "Morelos",
+                26
+            )
+        )
 
 
         // LinearLayoutManager es diseño lineal y GridLayoutManager es una cuadricula
@@ -52,7 +101,7 @@ class MyRecyclerView : AppCompatActivity() {
         recyclerView_koders.adapter = adapterKoder
     }
 
-    private fun initAgregarkoder(){
+    private fun initAgregarkoder() {
 
         button_add_koder.setOnClickListener {
             hideKeyboard(this)
@@ -60,11 +109,22 @@ class MyRecyclerView : AppCompatActivity() {
             val estado = til_estado.editText?.text.toString().trim()
             val edad = til_edad.editText?.text.toString().trim()
 
-            if(nombre.isNotEmpty() && estado.isNotEmpty() && estado.isNotEmpty()) {
-                adapterKoder.insertarKoder(DatosKoder(nombre,estado,edad.toInt()))
-                recyclerView_koders.scrollToPosition(adapterKoder.itemCount -1)
+            if (nombre.isNotEmpty() && estado.isNotEmpty() && estado.isNotEmpty()) {
+                adapterKoder.insertarKoder(
+                    DatosKoder(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Capilla_Campanario.jpg/800px-Capilla_Campanario.jpg",
+                        nombre,
+                        estado,
+                        edad.toInt()
+                    )
+                )
+                recyclerView_koders.scrollToPosition(adapterKoder.itemCount - 1)
             } else {
-                Snackbar.make(parent_view!!, "Los datos no pueden estar vacios", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    parent_view!!,
+                    "Los datos no pueden estar vacios",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
     }

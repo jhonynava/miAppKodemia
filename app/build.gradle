@@ -41,6 +41,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    implementation 'com.github.bumptech.glide:glide:4.12.0' // Librería para consumo de imagenes
+
     implementation 'com.google.android.material:material:1.6.0-alpha01'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
