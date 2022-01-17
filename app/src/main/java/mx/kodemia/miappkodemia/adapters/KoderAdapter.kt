@@ -12,7 +12,6 @@ import mx.kodemia.miappkodemia.model.DatosKoder
 
 class KoderAdapter (val koder: MutableList<DatosKoder>): RecyclerView.Adapter<KoderAdapter.KoderHolder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KoderAdapter.KoderHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return KoderHolder(layoutInflater.inflate(R.layout.item_cardview_koder, parent, false))
@@ -39,5 +38,10 @@ class KoderAdapter (val koder: MutableList<DatosKoder>): RecyclerView.Adapter<Ko
                 Snackbar.make(view, "Tap en ${koder.nombre}", Snackbar.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun insertarKoder(datosKoder: DatosKoder){
+        this.koder.add(datosKoder)
+        notifyItemInserted(itemCount)
     }
 }
