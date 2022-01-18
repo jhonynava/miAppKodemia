@@ -1,6 +1,7 @@
 package mx.kodemia.miappkodemia
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_my_recycler_view.*
+import kotlinx.android.synthetic.main.dialog_agregar_koder.view.*
+import kotlinx.android.synthetic.main.item_cardview_koder.view.*
 import mx.kodemia.miappkodemia.adapters.KoderAdapter
 import mx.kodemia.miappkodemia.model.DatosKoder
 
@@ -27,7 +31,45 @@ class MyRecyclerView : AppCompatActivity() {
         parent_view = findViewById(android.R.id.content)
         initRecyclerKoders()
         title = "RecyclerView Koders"
-        initAgregarkoder()
+        initFABAddKoder(this)
+    }
+
+    private fun initFABAddKoder(context: Context){
+        fab_add_koder_recyclerView.setOnClickListener {
+            val layoutInflater = LayoutInflater.from(context).inflate(R.layout.dialog_agregar_koder, null)
+            val dialog = AlertDialog.Builder(context).setView(layoutInflater).setCancelable(true)
+
+            val instanciaDialogo = dialog.show()
+            layoutInflater.button_add_koder.setOnClickListener {
+                val urlImage = layoutInflater.til_image_url.editText?.text.toString().trim()
+                val nombre = layoutInflater.til_nombre.editText?.text.toString()
+                val estado = layoutInflater.til_estado.editText?.text.toString()
+                val edad = layoutInflater.til_edad.editText?.text.toString()
+
+                if (urlImage.isNotEmpty() && nombre.isNotEmpty() && estado.isNotEmpty() && edad.isNotEmpty()) {
+                    adapterKoder.insertarKoder(
+                        DatosKoder(
+                            urlImage,
+                            nombre,
+                            estado,
+                            edad.toInt()
+                        )
+                    )
+                    recyclerView_koders.scrollToPosition(adapterKoder.itemCount - 1)
+                    instanciaDialogo.dismiss()
+                } else {
+                    Snackbar.make(
+                        parent_view!!,
+                        "Los datos no pueden estar vacios",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            layoutInflater.button_cancel_dialog.setOnClickListener {
+                instanciaDialogo.dismiss()
+            }
+        }
     }
 
     private fun initRecyclerKoders() {
@@ -101,7 +143,7 @@ class MyRecyclerView : AppCompatActivity() {
         recyclerView_koders.adapter = adapterKoder
     }
 
-    private fun initAgregarkoder() {
+    /*private fun initAgregarkoder() {
 
         button_add_koder.setOnClickListener {
             hideKeyboard(this)
@@ -127,7 +169,7 @@ class MyRecyclerView : AppCompatActivity() {
                 ).show()
             }
         }
-    }
+    }*/
 
     private fun hideKeyboard(activity: Activity) {
         val inputMethodManager =

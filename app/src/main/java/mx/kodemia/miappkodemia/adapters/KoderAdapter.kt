@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import mx.kodemia.miappkodemia.R
 import mx.kodemia.miappkodemia.model.DatosKoder
@@ -42,12 +43,25 @@ class KoderAdapter(val koder: MutableList<DatosKoder>) :
             textViewEdad.setText(koder.edad.toString())
 
             // Carga de imagenes
-            Glide.with(view).load(koder.image).diskCacheStrategy(DiskCacheStrategy.NONE)
+            Glide.with(view).load(koder.image).error(R.drawable.kodemia).diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(imageViewKoder)
 
             cardView.setOnClickListener {
-                Snackbar.make(view, "Tap en ${koder.nombre}", Snackbar.LENGTH_SHORT).show()
+//                Snackbar.make(view, "Tap en ${koder.nombre}", Snackbar.LENGTH_SHORT).show()
+                showDialog(view.context, koder)
             }
+        }
+
+        fun showDialog(context: Context, koder: DatosKoder){
+            MaterialAlertDialogBuilder(context)
+                .setTitle(koder.nombre)
+                .setMessage("Estado de la republica: ${koder.estado}")
+                .setCancelable(false)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(android.R.string.ok) { dialog, which ->
+                    Snackbar.make(view, "Esto es una accion del boton", Snackbar.LENGTH_SHORT).show()
+                }
+                .show()
         }
     }
 
